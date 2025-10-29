@@ -55,6 +55,8 @@ rpm-victorialogs: setup
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
 			$(SPECS_DIR)/victorialogs.spec; \
+		mv $(RPMS_DIR)/victorialogs-$(VERSION)-$(RELEASE).$(ARCH).rpm \
+		   $(RPMS_DIR)/victorialogs-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm 2>/dev/null || true; \
 		cp $(RPMS_DIR)/victorialogs-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
 	@echo "victorialogs RPMs built successfully!"
@@ -72,6 +74,8 @@ rpm-vlagent: setup
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
 			$(SPECS_DIR)/vlagent.spec; \
+		mv $(RPMS_DIR)/vlagent-$(VERSION)-$(RELEASE).$(ARCH).rpm \
+		   $(RPMS_DIR)/vlagent-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm 2>/dev/null || true; \
 		cp $(RPMS_DIR)/vlagent-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
 	@echo "vlagent RPMs built successfully!"
@@ -87,6 +91,8 @@ rpm-vlogscli: setup
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
 			$(SPECS_DIR)/vlogscli.spec; \
+		mv $(RPMS_DIR)/vlogscli-$(VERSION)-$(RELEASE).$(ARCH).rpm \
+		   $(RPMS_DIR)/vlogscli-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm 2>/dev/null || true; \
 		cp $(RPMS_DIR)/vlogscli-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
 	@echo "vlogscli RPMs built successfully!"
