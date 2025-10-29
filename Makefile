@@ -53,8 +53,8 @@ rpm-victorialogs: setup
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "version $(VERSION)" \
-			--define "release $(RELEASE)" \
+			--define "Version $(VERSION)" \
+			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/victorialogs.spec; \
 		cp $(RPMS_DIR)/victorialogs-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
@@ -71,8 +71,8 @@ rpm-vlagent: setup
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "version $(VERSION)" \
-			--define "release $(RELEASE)" \
+			--define "Version $(VERSION)" \
+			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/vlagent.spec; \
 		cp $(RPMS_DIR)/vlagent-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
@@ -87,8 +87,8 @@ rpm-vlogscli: setup
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "version $(VERSION)" \
-			--define "release $(RELEASE)" \
+			--define "Version $(VERSION)" \
+			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/vlogscli.spec; \
 		cp $(RPMS_DIR)/vlogscli-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
