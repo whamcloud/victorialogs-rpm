@@ -6,11 +6,11 @@
 Name:    vlagent
 Version: 1.33.1
 Release: 1
-Summary: vlagent is a tiny agent which helps you collect logs from various sources and store them in VictoriaLogs
+Summary: vlagent is a tiny agent which helps you collect logs from various sources and store them in VictoriaLogs (whamCloud build)
 
 Group:   Development Tools
 License: ASL 2.0
-URL: https://github.com/VictoriaMetrics/VictoriaLogs/releases/download/v%{version}/vlutils-linux-%{release_arch}-v%{version}.tar.gz
+URL: https://github.com/whamCloud/VictoriaLogs/releases/download/v%{version}/vlutils-linux-%{release_arch}-v%{version}.tar.gz
 
 Source0: %{name}.service
 Source1: %{name}.conf
