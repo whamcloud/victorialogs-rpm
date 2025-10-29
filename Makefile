@@ -47,14 +47,13 @@ rpm-victorialogs: setup
 	@echo "Building victorialogs RPM for version $(VERSION)..."
 	@for dist in $(DISTS); do \
 		echo "Building for $$dist..."; \
-		cp victorialogs.spec $(SPECS_DIR)/; \
+		sed 's/^Version:.*/Version: $(VERSION)/' victorialogs.spec > $(SPECS_DIR)/victorialogs.spec; \
+		sed -i 's/^Release:.*/Release: $(RELEASE)/' $(SPECS_DIR)/victorialogs.spec; \
 		cp victorialogs.service $(SOURCES_DIR)/; \
 		cp victorialogs.conf $(SOURCES_DIR)/; \
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "Version $(VERSION)" \
-			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/victorialogs.spec; \
 		cp $(RPMS_DIR)/victorialogs-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
@@ -65,14 +64,13 @@ rpm-vlagent: setup
 	@echo "Building vlagent RPM for version $(VERSION)..."
 	@for dist in $(DISTS); do \
 		echo "Building for $$dist..."; \
-		cp vlagent.spec $(SPECS_DIR)/; \
+		sed 's/^Version:.*/Version: $(VERSION)/' vlagent.spec > $(SPECS_DIR)/vlagent.spec; \
+		sed -i 's/^Release:.*/Release: $(RELEASE)/' $(SPECS_DIR)/vlagent.spec; \
 		cp vlagent.service $(SOURCES_DIR)/; \
 		cp vlagent.conf $(SOURCES_DIR)/; \
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "Version $(VERSION)" \
-			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/vlagent.spec; \
 		cp $(RPMS_DIR)/vlagent-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
@@ -83,12 +81,11 @@ rpm-vlogscli: setup
 	@echo "Building vlogscli RPM for version $(VERSION)..."
 	@for dist in $(DISTS); do \
 		echo "Building for $$dist..."; \
-		cp vlogscli.spec $(SPECS_DIR)/; \
+		sed 's/^Version:.*/Version: $(VERSION)/' vlogscli.spec > $(SPECS_DIR)/vlogscli.spec; \
+		sed -i 's/^Release:.*/Release: $(RELEASE)/' $(SPECS_DIR)/vlogscli.spec; \
 		rpmbuild -bb \
 			--define "_topdir $(RPMBUILD_DIR)" \
 			--define "dist .$$dist" \
-			--define "Version $(VERSION)" \
-			--define "Release $(RELEASE)" \
 			$(SPECS_DIR)/vlogscli.spec; \
 		cp $(RPMS_DIR)/vlogscli-$(VERSION)-$(RELEASE).$$dist.$(ARCH).rpm output/; \
 	done
