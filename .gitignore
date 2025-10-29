@@ -3,3 +3,18 @@
 /.idea/vcs.xml
 /.idea/victoriametrics-rpm.iml
 /.idea/workspace.xml
+
+# RPM build artifacts
+output/
+rpmbuild/
+
+# Temporary files
+*.tar.gz
+*.rpm
+*.src.rpm
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
