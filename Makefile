@@ -1,5 +1,5 @@
 # Makefile for building VictoriaLogs RPMs
-# Supports EL8, EL9, RHEL8, RHEL9
+# Supports EL8, RHEL8
 
 VERSION ?= 0.0.2
 RELEASE ?= 1
@@ -12,7 +12,7 @@ SOURCES_DIR := $(RPMBUILD_DIR)/SOURCES
 RPMS_DIR := $(RPMBUILD_DIR)/RPMS/$(ARCH)
 
 # Distribution targets
-DISTS := el8 el9
+DISTS := el8
 
 .PHONY: all clean setup rpm-victorialogs rpm-vlagent rpm-vlogscli rpm help
 
