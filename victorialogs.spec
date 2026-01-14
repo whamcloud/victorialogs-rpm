@@ -31,8 +31,15 @@ BuildRequires: curl
 VictoriaLogs is log management and log analytics system from VictoriaMetrics.
 
 %prep
-curl -L %{url} > victorialogs.tar.gz
-tar -zxf victorialogs.tar.gz
+# Check if local binary exists (for container builds)
+if [ -f /binaries/victoria-logs-linux-amd64-prod ]; then
+    echo "Using local binary from /binaries/"
+    cp /binaries/victoria-logs-linux-amd64-prod victoria-logs-prod
+else
+    echo "Downloading from GitHub releases..."
+    curl -L %{url} > victorialogs.tar.gz
+    tar -zxf victorialogs.tar.gz
+fi
 
 %install
 %{__install} -m 0755 -d %{buildroot}%{_bindir}

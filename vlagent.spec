@@ -31,8 +31,15 @@ BuildRequires: curl
 vlagent is a tiny agent which helps you collect logs from various sources and store them in https://docs.victoriametrics.com/victorialogs/. See https://docs.victoriametrics.com/victorialogs/vlagent/#quick-start for details.
 
 %prep
-curl -L %{url} > vlutils.tar.gz
-tar -zxf vlutils.tar.gz
+# Check if local binary exists (for container builds)
+if [ -f /binaries/vlagent-linux-amd64-prod ]; then
+    echo "Using local binary from /binaries/"
+    cp /binaries/vlagent-linux-amd64-prod vlagent-prod
+else
+    echo "Downloading from GitHub releases..."
+    curl -L %{url} > vlutils.tar.gz
+    tar -zxf vlutils.tar.gz
+fi
 
 %install
 %{__install} -m 0755 -d %{buildroot}%{_bindir}
