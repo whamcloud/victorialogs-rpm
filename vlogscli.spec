@@ -22,8 +22,15 @@ BuildRequires: curl
 vlogsqcli is an interactive command-line tool for querying VictoriaLogs, see https://docs.victoriametrics.com/victorialogs/querying/vlogscli/
 
 %prep
-curl -L %{url} > vlutils.tar.gz
-tar -zxf vlutils.tar.gz
+# Check if local binary exists (for container builds)
+if [ -f /binaries/vlogscli-linux-amd64-prod ]; then
+    echo "Using local binary from /binaries/"
+    cp /binaries/vlogscli-linux-amd64-prod vlogscli-prod
+else
+    echo "Downloading from GitHub releases..."
+    curl -L %{url} > vlutils.tar.gz
+    tar -zxf vlutils.tar.gz
+fi
 
 %install
 %{__install} -m 0755 -d %{buildroot}%{_bindir}
