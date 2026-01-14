@@ -5,7 +5,7 @@
 
 Name:    victorialogs
 Version: 1.33.1
-Release: 1
+Release: 1%{?dist}
 Summary: Log management and log analytics system from VictoriaMetrics team (whamCloud build).
 
 Group:   Development Tools

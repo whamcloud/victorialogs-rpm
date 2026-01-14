@@ -5,7 +5,7 @@
 
 Name:    vlogscli
 Version: 1.33.1
-Release: 1
+Release: 1%{?dist}
 Summary: vlogsqcli is an interactive command-line tool for querying VictoriaLogs (whamCloud build)
 
 Group:   Development Tools
